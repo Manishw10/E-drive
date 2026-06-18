@@ -1,0 +1,37 @@
+package com.springSecurity.springController;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+
+import com.springSecurity.Dao.SecurityUserDAO;
+import com.springSecurity.Entity.Users;
+
+@Component
+public class UserPassAdd {
+	
+	public CommandLineRunner addingUserPass(SecurityUserDAO serDao,PasswordEncoder passwordEncoder) {
+		 return args -> {
+	            if (serDao.findByUser_Name("admin").isEmpty()) {
+	                Users admin = new Users();
+	                admin.setUser_Name("admin");
+	                admin.setUser_Pass(passwordEncoder.encode("admin1234")); // Securely store password
+	                admin.setRole("Admin");
+
+	                serDao.save(admin);
+	                System.out.println("Default admin user created!");
+	            }
+	            if (serDao.findByUser_Name("user").isEmpty()) {
+	                Users admin = new Users();
+	                admin.setUser_Name("user");
+	                admin.setUser_Pass(passwordEncoder.encode("user1234")); // Securely store password
+	                admin.setRole("Admin");
+
+	                serDao.save(admin);
+	                System.out.println("Default admin user created!");
+	            }
+	        };
+		
+	}
+
+}

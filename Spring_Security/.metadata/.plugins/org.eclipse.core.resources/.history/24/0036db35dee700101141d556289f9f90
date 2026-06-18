@@ -1,0 +1,23 @@
+package com.springSecurity.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+
+import com.springSecurity.Dao.SecurityUserDAO;
+
+
+@Service
+public class SecurityUserDetails {
+
+	@Autowired 
+	 SecurityUserDAO userDAO;
+	
+	
+	public UserDetails customeUserDetails(String username) throws UserNotFoundException {
+		return userDAO.findByUser_Name(username)
+				.orElseThrow(()-> new UserNotFoundException("User not found"));
+	}
+	
+}
+S
