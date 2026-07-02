@@ -1,5 +1,0 @@
-package com.springSecurity.Utility;
-
-public class JWTUtility {
-
-}

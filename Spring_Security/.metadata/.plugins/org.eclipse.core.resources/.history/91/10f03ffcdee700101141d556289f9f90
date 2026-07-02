@@ -1,9 +1,0 @@
-package com.springSecurity.Dao;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.springSecurity.Entity.Users;
-
-public interface SecurityUserDAO extends JpaRepository<Users,Integer>{
-	public Users findByUser_Name(String uname);
-}
