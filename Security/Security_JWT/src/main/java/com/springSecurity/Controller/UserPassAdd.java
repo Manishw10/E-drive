@@ -1,4 +1,4 @@
-package com.springSecurity.springController;
+package com.springSecurity.Controller;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

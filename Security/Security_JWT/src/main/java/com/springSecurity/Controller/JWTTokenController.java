@@ -1,4 +1,4 @@
-package com.springSecurity.springController;
+package com.springSecurity.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

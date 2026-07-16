@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.springSecurity.Dao.DaoInterface;
 import com.springSecurity.Entity.Student;
+import com.springSecurity.ExceptionHandling.DataNotFoundException;
+
 import java.util.List;
 
 @Service
@@ -19,8 +21,18 @@ public class Services  {
 	}
 
 	public List<Student> getStudent() {
-		// TODO Auto-generated method stub
-		return (List<Student>) studentDao.findAll();
+		List<Student> list = (List<Student>) studentDao.findAll();
+		if(list.isEmpty()){
+			throw new DataNotFoundException("Student list is empty");
+		}
+		else {
+			return  list;
+		}
+	}
+
+	public void deletedata() {
+			studentDao.deleteAll();
+		
 	}
 
 }
